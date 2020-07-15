@@ -9,7 +9,7 @@ import "./signin.styles.scss"
 class SignIn extends Component {
   state = {
     email: "",
-    password: ""
+    password: "",
   }
 
   handleSubmit = event => {
@@ -17,7 +17,7 @@ class SignIn extends Component {
 
     this.setState({
       email: "",
-      password: ""
+      password: "",
     })
   }
 
@@ -25,7 +25,7 @@ class SignIn extends Component {
     const { value, name } = event.target
 
     this.setState({
-      [name]: value
+      [name]: value,
     })
   }
 
@@ -54,10 +54,12 @@ class SignIn extends Component {
             required
           />
 
-          <CustomButton type="submit">Sign In</CustomButton>
-          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
-            Sign in with Google
-          </CustomButton>
+          <div className="buttons">
+            <CustomButton type="submit">Sign In</CustomButton>
+            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+              Sign in with Google
+            </CustomButton>
+          </div>
         </form>
       </div>
     )
