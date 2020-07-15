@@ -9,7 +9,33 @@ const config = {
   projectId: "crown-clothing-app-db-fbeab",
   storageBucket: "crown-clothing-app-db-fbeab.appspot.com",
   messagingSenderId: "959092452425",
-  appId: "1:959092452425:web:74e91aa38511a9c55d6398"
+  appId: "1:959092452425:web:74e91aa38511a9c55d6398",
+}
+
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+  if (!userAuth) return
+
+  const userRef = firestore.doc(`users/${userAuth.uid}`)
+  const snapShot = await userRef.get()
+
+  // console.log(snapShot)
+  if (!snapShot.exists) {
+    const { displayName, email } = userAuth
+    const createdAt = new Date()
+
+    try {
+      await userRef.set({
+        displayName,
+        email,
+        createdAt,
+        ...additionalData,
+      })
+    } catch (error) {
+      console.log("error creating user", error.message)
+    }
+  }
+
+  return userRef
 }
 
 firebase.initializeApp(config)
@@ -19,7 +45,7 @@ export const firestore = firebase.firestore()
 
 const provider = new firebase.auth.GoogleAuthProvider()
 provider.setCustomParameters({
-  prompt: "select_account"
+  prompt: "select_account",
 })
 export const signInWithGoogle = () => auth.signInWithPopup(provider)
 
