@@ -9,7 +9,7 @@ import "./signin.styles.scss"
 class SignIn extends Component {
   state = {
     email: "",
-    password: "",
+    password: ""
   }
 
   handleSubmit = event => {
@@ -17,7 +17,7 @@ class SignIn extends Component {
 
     this.setState({
       email: "",
-      password: "",
+      password: ""
     })
   }
 
@@ -25,7 +25,7 @@ class SignIn extends Component {
     const { value, name } = event.target
 
     this.setState({
-      [name]: value,
+      [name]: value
     })
   }
 
@@ -44,7 +44,7 @@ class SignIn extends Component {
             name="email"
             value={this.state.email}
             handleChange={this.handleChange}
-            label="email"
+            label="eMail"
             required
           />
 
@@ -53,7 +53,7 @@ class SignIn extends Component {
             name="password"
             value={this.state.password}
             handleChange={this.handleChange}
-            label="password"
+            label="Password"
             required
           />
 

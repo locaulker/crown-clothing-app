@@ -10,7 +10,7 @@ export class SignUp extends Component {
     displayName: "",
     email: "",
     password: "",
-    confirmPassword: "",
+    confirmPassword: ""
   }
 
   handleSubmit = async event => {
@@ -19,7 +19,7 @@ export class SignUp extends Component {
     const { displayName, email, password, confirmPassword } = this.state
 
     if (password !== confirmPassword) {
-      alert("Oops! Passwords don not match")
+      alert("Oops! Passwords do not match")
       return
     }
 
@@ -34,7 +34,7 @@ export class SignUp extends Component {
         displayName: "",
         email: "",
         password: "",
-        confirmPassword: "",
+        confirmPassword: ""
       })
     } catch (error) {
       console.log(error)
@@ -61,7 +61,7 @@ export class SignUp extends Component {
             name="displayName"
             value={displayName}
             onChange={this.handleChange}
-            label="eMail"
+            label="Display Name"
             required
           />
           <FormInput
@@ -69,7 +69,7 @@ export class SignUp extends Component {
             name="email"
             value={email}
             onChange={this.handleChange}
-            label="Display Name"
+            label="eMail"
             required
           />
           <FormInput

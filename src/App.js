@@ -10,7 +10,7 @@ import { auth, createUserProfileDocument } from "./firebase/firebase.utils"
 
 class App extends React.Component {
   state = {
-    currentUser: null,
+    currentUser: null
   }
 
   unsubscribeFromAuth = null
@@ -24,9 +24,11 @@ class App extends React.Component {
           this.setState({
             currentUser: {
               id: snapShot.id,
-              ...snapShot.data(),
-            },
+              ...snapShot.data()
+            }
           })
+
+          console.log(this.state)
         })
       }
 
