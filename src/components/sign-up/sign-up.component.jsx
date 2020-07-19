@@ -10,7 +10,7 @@ export class SignUp extends Component {
     displayName: "",
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
   }
 
   handleSubmit = async event => {
@@ -34,7 +34,7 @@ export class SignUp extends Component {
         displayName: "",
         email: "",
         password: "",
-        confirmPassword: ""
+        confirmPassword: "",
       })
     } catch (error) {
       console.log(error)
@@ -89,7 +89,7 @@ export class SignUp extends Component {
             required
           />
 
-          <CustomButton type="submit">Sign Up</CustomButton>
+          <CustomButton type="submit">SIGN Up</CustomButton>
         </form>
       </div>
     )
