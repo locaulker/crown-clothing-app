@@ -10,6 +10,8 @@ import Header from "./components/header/header.component"
 import SignInSignUp from "./pages/signin-and-signup/signin-and-signup"
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils"
 import { setCurrentUser } from "./redux/user/user.actions"
+import { selectCurrentUser } from "./redux/user/user.selectors"
+import { createStructuredSelector } from "reselect"
 
 class App extends React.Component {
   unsubscribeFromAuth = null
@@ -24,7 +26,7 @@ class App extends React.Component {
         userRef.onSnapshot(snapShot => {
           setCurrentUser({
             id: snapShot.id,
-            ...snapShot.data(),
+            ...snapShot.data()
           })
         })
       }
@@ -57,12 +59,12 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
-  currentUser: user.currentUser,
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser
 })
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user)),
+  setCurrentUser: user => dispatch(setCurrentUser(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
