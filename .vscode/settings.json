@@ -3,6 +3,7 @@
     "dashadu",
     "firebaseapp",
     "firestore",
+    "persistor",
     "signin",
     "signup",
     "womens"
