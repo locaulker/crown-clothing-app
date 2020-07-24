@@ -3,6 +3,7 @@
     "dashadu",
     "firebaseapp",
     "firestore",
+    "middlewares",
     "persistor",
     "signin",
     "signup",
