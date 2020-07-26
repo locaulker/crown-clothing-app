@@ -4,12 +4,12 @@ import CustomButton from "../custom-button/custom-button.component"
 
 import { auth, signInWithGoogle } from "../../firebase/firebase.utils"
 
-import "./signin.styles.scss"
+import "./sign-in.styles.scss"
 
 class SignIn extends Component {
   state = {
     email: "",
-    password: ""
+    password: "",
   }
 
   handleSubmit = async event => {
@@ -21,7 +21,7 @@ class SignIn extends Component {
       await auth.signInWithEmailAndPassword(email, password)
       this.setState({
         email: "",
-        password: ""
+        password: "",
       })
     } catch (error) {
       console.log(error)
@@ -32,7 +32,7 @@ class SignIn extends Component {
     const { value, name } = event.target
 
     this.setState({
-      [name]: value
+      [name]: value,
     })
   }
 
@@ -65,7 +65,7 @@ class SignIn extends Component {
           />
 
           <div className="buttons">
-            <CustomButton type="submit">Sign In</CustomButton>
+            <CustomButton type="submit"> Sign In </CustomButton>
             <CustomButton
               type="button"
               onClick={signInWithGoogle}
